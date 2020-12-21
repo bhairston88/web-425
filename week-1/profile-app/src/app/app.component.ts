@@ -1,13 +1,12 @@
 /*
-; ========================================
-; Title: app.components.ts
+; ==============================
+; Title: app-component.ts
 ; Author: Professor Krasso
-; Date: 17 December 2020
-; Modified by: Brooklyn Hairston
+; Date: 19 December 2020
+; Modified By: Brooklyn Hairston
 ; Description: App component
-; ========================================
+; ==============================
 */
-
 
 
 import { Component } from '@angular/core';
@@ -18,5 +17,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myWorld = "You are now in Brooklyn's World!";
+  assignment: string = "Assignment 1.5 -Components"
 }

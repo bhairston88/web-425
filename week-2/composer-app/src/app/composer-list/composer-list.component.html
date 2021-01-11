@@ -1,0 +1,21 @@
+<!-- An HTML page with a list of composers-->
+
+<br /><br />
+<h2>Composer List</h2>
+<br /><br />
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Genre</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let composer of composers">
+      <tr>
+        <td scope="row">{{ composer.fullName }}</td>
+        <td>{{ composer.genre }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

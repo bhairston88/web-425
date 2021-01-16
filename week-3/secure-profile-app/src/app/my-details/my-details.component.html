@@ -1,0 +1,14 @@
+<!--An HTML page rendering a Bootstrap list-group with four fields -->
+
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Name:</strong> {{ myProfile.fullName }}</li>
+  <li class="list-group-item"><strong>Favorite Food:</strong> {{ myProfile.favoriteFood }}</li>
+  <li class="list-group-item"><strong>Favorite Color:</strong> {{ myProfile.favoriteColor }}</li>
+  <li class="list-group-item"><strong>Keywords:</strong>
+    <!-- Iterates over the my.Profile keywords array and outputs the results -->
+    <span *ngFor="let word of myProfile.keywords">
+      {{ word }}
+    </span>
+  </li>
+</ul>

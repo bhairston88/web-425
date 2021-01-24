@@ -1,0 +1,16 @@
+<!--An HTML page that returns a Bootstrap list group that outputs each value of the composer object -->
+
+<br /><br />
+
+<div class="row">
+  <div class="col-sm-12">
+    <ul class="list-group">
+      <li class="list-group-item">Composer ID: {{ composer.composerId }}</li>
+      <li class="list-group-item">Full Name: {{ composer.fullName }}</li>
+      <li class="list-group-item">Genre: {{ composer.genre }}</li>
+    </ul>
+
+    <!-- routerLink (floated right) that returns users to the composer-list -->
+    <a routerLink="/composer-list" class="float-right">Return to Composers</a>
+  </div>
+</div>

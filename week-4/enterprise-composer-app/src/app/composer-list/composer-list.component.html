@@ -1,0 +1,36 @@
+<!-- An HTML page with a list of composers-->
+
+<br /><br />
+<h2>Composer List</h2>
+<br /><br />
+<!-- Bootstrap input field that filters the composer list by name -->
+<div class="txtSearch">
+  <input type="text" class="form-control" id="txtSearch" [formControl]="txtSearchControl" placeholder="Search by name">
+</div>
+
+<!--
+Creates a Bootstrap table with three columns:
+Composer ID
+Full Name
+Genre
+-->
+<div class="container">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>Composer ID</th>
+        <th>Full Name</th>
+        <th>Genre</th>
+      </tr>
+    </thead>
+    <!-- Loops over the array of composers and outputs the results with the async pipe -->
+    <tbody *ngFor="let composer of composers | async">
+      <tr>
+        <!-- Creates a routerLink that takes users to the composer-details page-->
+        <td scope="row"><a routerLink="/composer-details/{{composer.composerId}}">{{ composer.composerId }}</a></td>
+        <td>{{ composer.fullName }}</td>
+        <td>{{ composer.genre }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,17 @@
+<!-- An HTML page for the wishlist-create component -->
+
+<!-- A form with two input fields to add items to the wishlist -->
+<form fxLayout="column" class="wishlist-create-form">
+  <mat-form-field fxFlex appearance="fill">
+    <mat-label>Title</mat-label>
+    <input type="text" name="title" matInput [(ngModel)]="item.title" />
+  </mat-form-field>
+
+  <mat-form-field fxFlex appearance="fill">
+    <mat-label>Authors</mat-label>
+    <input type="text" name="authors" matInput [(ngModel)]="item.authors" />
+  </mat-form-field>
+
+  <!-- A button that adds items to the wishlist -->
+  <button mat-button color="primary" (click)="addItem()">Add Item</button>
+</form>

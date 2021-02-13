@@ -1,0 +1,27 @@
+<!-- An HTML page for the base-layout component-->
+
+<!-- Material toolbar with a logo image and navigation bar -->
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row>
+    <div class="logo">
+      <img src="../../assets/gpa-calculator-app.png" height="80">
+    </div>
+    <div style="width: 80%">
+      <div fxLayout="row wrap" fxLayoutAlign ="end start">
+        <button mat-button routerLink="/">Home</button>
+        <button mat-button (click)="signOut()">Sign Out</button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br />
+
+<!-- Material card with a title that displays the assignment variable and content with the router-outlet -->
+<mat-card>
+  <mat-card-title>
+    {{ assignment }}
+  </mat-card-title>
+  <mat-card-content>
+    <router-outlet></router-outlet>
+  </mat-card-content>
+</mat-card>

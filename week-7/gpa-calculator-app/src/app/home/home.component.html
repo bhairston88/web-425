@@ -1,0 +1,57 @@
+<!--An HTML page for the Home component -->
+
+<br /><br />
+<div fxLayout="row wrap" fxLayoutGap="20px">
+  <div fxFlex class="grade-form">
+
+    <!-- Material card with two inputs of Course and Grade -->
+    <mat-card>
+      <mat-card-title>Grade Entry</mat-card-title>
+
+
+      <mat-card-content>
+        <form [formGroup]="transcriptForm" (ngSubmit)="onSubmit($event); transcriptForm.reset()"fxLayout="column" fxLayoutGap="16px">
+        <mat-form-field fxFlex appearance="fill">
+          <mat-label>Course</mat-label>
+          <!-- Maps the transactionEntries using formControl and outputs the entry in the transcript mat-card -->
+          <input type="text" required id="txtCourse" name="Course" matInput formControlName="course">
+        </mat-form-field>
+
+        <!--Loops over the selectableGrades and displays them in a drop down input -->
+        <mat-form-field fxFlex appearance="fill">
+          <mat-label>Grade</mat-label>
+          <mat-select formControlName="grade" required name="selectGrade">
+            <mat-option *ngFor="let grade of selectableGrades" [value]="grade">{{ grade }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- A button that saves the input values to the transcript mat-card -->
+        <button type="submit" [disabled]="!transcriptForm.valid" mat-raised-button color="primary">Save</button>
+      </form>
+    </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- A material card that displays a list from the grade entry form -->
+  <div fxFlex class="grade-summary">
+    <!-- A button to clear the transcript entries -->
+    <button mat-button color="primary" (click)="clearEntries()">Clear Transcript</button>
+    <mat-card>
+      <mat-card-title>Transcript</mat-card-title>
+      <mat-card-content>
+        <app-grade-summary *ngFor="let entry of transcriptEntries" [course]="entry.course" [grade]="entry.grade"></app-grade-summary>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- Calls the calculateResults() event and passes in the gpaTotal value -->
+<div fxLayout="column" fxLayoutGap="20px">
+  <div fxFlex class="gpa">
+    <button mat-button color="primary" (click)="calculateResults()">Calculate GPA</button>
+    <mat-card>
+    <mat-card-title>GPA:
+      <app-gpa [gpaTotal]="gpaTotal"></app-gpa>
+    </mat-card-title>
+    </mat-card>
+  </div>
+</div>

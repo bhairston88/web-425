@@ -1,0 +1,44 @@
+<!-- HTML page for the sign-in component -->
+
+<div fxLayout="column">
+
+  <!-- Material card with a title and subtitle -->
+  <mat-card fxFlex class="signin">
+    <mat-card-title>Student Sign In</mat-card-title>
+    <mat-card-subtitle>You must enter a valid student ID to proceed.</mat-card-subtitle>
+
+    <!-- Checks if the errorMessage variable has a value and returns the errorMessage is true -->
+    <mat-card-content>
+      <div class="msg-error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <div *ngIf="form.studentId.errors && form.studentId.touched">
+        <div class="msg-error">Student ID must be a numeric value.</div>
+      </div>
+     <mat-card fxLayout="column" fxLayoutGap="10px">
+
+      <!-- Calls the FormGroup and the submit function -->
+
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit(); signinForm.reset()">
+        <mat-card-content>
+
+          <!-- Material form with one input field and a submit button -->
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label for="txtStudentId" id="lblStudentId">Student ID</mat-label>
+            <input type="text" required matInput formControlName="studentId" id="txtStudentId" name="txtStudentId">
+          </mat-form-field>
+        </mat-card-content>
+
+
+        <!-- Submit button that is disable when the form is invalid -->
+        <mat-card-actions>
+          <button type="submit" [disabled]="!signinForm.valid" fxFlex mat-raised-button color="primary">Submit</button>
+        </mat-card-actions>
+      </form>
+     </mat-card>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>

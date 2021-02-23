@@ -1,0 +1,16 @@
+/* Mat card styling */
+
+mat-card-title {
+  color: blue;
+}
+
+
+/* mat card content styling */
+
+.book-details {
+  font-size: 20px;
+}
+
+p {
+  padding: 15px;
+}

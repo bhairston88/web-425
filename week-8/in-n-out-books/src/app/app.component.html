@@ -1,0 +1,38 @@
+<!-- A HTML home page -->
+
+<!-- Material toolbar with an image logo and navigation bar -->
+<mat-toolbar class="toolbar">
+  <mat-toolbar-row>
+    <div class="logo">
+      <img src="../assets/In-N-Out books Logo.png" height="80">
+    </div>
+    <div style="width: 80%">
+    <div fxLayout="row wrap" fxLayoutAlign="end start">
+      <button mat-button routerLink="/book-list">Book List</button>
+      <button mat-button routerLink="/wishlist">Wishlist</button>
+      <button mat-button routerLink="/contact">Contact</button>
+      <button mat-button routerLink="/about">About</button>
+  </div>
+</div>
+</mat-toolbar-row>
+</mat-toolbar>
+<br />
+
+<!-- Main container with a Material card -->
+<div fxLayout="row wrap">
+  <div fxFlex>
+    <mat-card class="main-container">
+      <!-- Material card title that calls the assignment variable -->
+      <mat-card-title>
+        {{ assignment }}
+      </mat-card-title>
+      <br /><br />
+
+      <!-- Material card content with a router-outlet -->
+      <mat-card-content>
+        <router-outlet></router-outlet>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
